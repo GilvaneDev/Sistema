@@ -1,0 +1,362 @@
+﻿@model Sige_Erp.Models.NFVModel
+
+@{
+    Layout = null;
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<style>
+    .navbar {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        padding-left: 5px;
+    }
+
+    .form {
+        padding-left: 5px;
+    }
+
+    .lbcolor {
+        color: black;
+        font-weight: 600;
+    }
+
+    .btn-secondary {
+        background-color: #D9D9D9;
+        color: black;
+        font-weight: 600;
+        border: none;
+    }
+
+    span {
+        color: black;
+        font-weight: 600;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #D9D9D9;
+    }
+
+    .container {
+        flex: 1;
+    }
+
+    footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #D9D9D9;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    span {
+        color: black;
+        font-weight: 600;
+    }
+
+    .logo {
+        width: 130px;
+        height: auto;
+        object-fit: cover;
+    }
+
+</style>
+<header style=" background-color: #D9D9D9;">
+    <div class="container">
+        <a class="navbar-brand custom-link custom-bold" asp-area="" asp-controller="Home" asp-action="Index">
+
+            <img src="~/images/LogoSige.png" alt="Logo do Sistema de Vendas" class="logo">
+
+            Sige Sistema de Vendas
+        </a>
+    </div>
+</header>
+<div class="container bg-body-tertiary">
+
+    <div class="form">
+        <form method="post" asp-controller="NFV" asp-action="AcaoDesejadaNFV">
+            <input type="hidden" id="AbaAtiva" name="AbaAtiva" value="@Model.AbaAtiva" />
+            <nav class="navbar bg-body-tertiary">
+                <button type="button" class="btn btn-secondary" name="acao" value="Voltar" onclick="goToMenu()">Voltar</button>
+                <button type="button" class="btn btn-secondary" name="acao" value="Novo" onclick="goToNovo()">Novo</button>
+                <button type="submit" class="btn btn-secondary" name="acao" value="Pesquisar">Pesquisar</button>
+                <button type="submit" class="btn btn-secondary" name="acao" value="Excluir">Excluir</button>
+                <button type="submit" class="btn btn-secondary" name="acao" value="Imprimir" onclick="preparePrint()">Imprimir</button>
+            </nav>
+            <!-- Seção para exibir mensagens -->
+            @if (TempData.ContainsKey("MensagemErro") || TempData.ContainsKey("MensagemSucesso"))
+            {
+                <div id="mensagem" class="alert alert-dismissible fade show" role="alert">
+                    @if (TempData.ContainsKey("MensagemErro"))
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @TempData["MensagemErro"]
+                        </div>
+                    }
+
+                    @if (TempData.ContainsKey("MensagemSucesso"))
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @TempData["MensagemSucesso"]
+                        </div>
+                    }
+
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <script>
+                    // Fechar a mensagem automaticamente após 5 segundos
+                    setTimeout(function () {
+                        $('#mensagem').alert('close');
+                    }, 5000);
+                </script>
+            }
+            <ul class="nav nav-tabs">
+                <li class="nav-item" id="tabNFVLi">
+                    <a class="nav-link @((Model.AbaAtiva == false) ? "active" : "")" id="NFVLi" data-bs-toggle="tab" href="#tabNFV">Formulário NFV</a>
+                </li>
+                @if (Model.AbaAtiva != false)
+                {
+                    <li class="nav-item" id="tabRelatorioLi">
+                        <a class="nav-link @((Model.AbaAtiva != false) ? "active" : "")" id="RelatorioLi" data-bs-toggle="tab" href="#tabRelatorio">Relatório PDF  <span class="close-tab" onclick="fecharAba()" style="background-color: red; color: black;">&times;</span></a>
+                    </li>
+                }
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade @((Model.AbaAtiva == false) ? "show active" : "")" id="tabNFV">
+                    <div class="row">
+                        <div class="mb-3 col-4" id="clienteRow">
+                            <label for="NomeDoCliente" class="form-label lbcolor">Cliente</label>
+                            <select class="form-select" id="NomeDoCliente" name="NomeDoCliente" asp-for="NomeDoCliente">
+                                <option value="" selected>Selecione um Cliente</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label for="NomeDoProduto" class="form-label lbcolor">Produto</label>
+                            <select class="form-select" id="NomeDoProduto" name="NomeDoProduto" asp-for="NomeDoProduto">
+                                <option value="" selected>Selecione um produto</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="NrNfv" class="form-label lbcolor">Nr NFV</label>
+                            <input type="text" class="form-control" id="NrNfv" asp-for="NrNfv">
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="mb-3 col-2">
+                            <label for="deCadastro" class="form-label lbcolor">Cadastro de</label>
+                            <input type="date" class="form-control" id="deCadastro" asp-for="deCadastro">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="ateCadastro" class="form-label lbcolor">Cadastro Ate</label>
+                            <input type="date" class="form-control" id="ateCadastro" asp-for="ateCadastro">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="deVencimento" class="form-label lbcolor">Vencimento De</label>
+                            <input type="date" class="form-control" id="deVencimento" asp-for="deVencimento">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="ateVencimento" class="form-label lbcolor">Vencimento Ate</label>
+                            <input type="date" class="form-control" id="ateVencimento" asp-for="ateVencimento">
+                        </div>
+
+                        <div class="mb-3 col-2">
+                            <label for="Serie" class="form-label lbcolor">Serie</label>
+                            <input type="text" class="form-control" id="Serie" asp-for="Serie">
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+
+                        <div class="mb-3 col-2">
+                            <label for="ValorTotal" class="form-label lbcolor">Valor Total</label>
+                            <input type="text" class="form-control" id="ValorTotal" asp-for="ValorTotal">
+                        </div>
+                        <div class="mb-3 col-5">
+                            <label for="ChaveNfv" class="form-label lbcolor">Chave NFV</label>
+                            <input type="text" class="form-control" id="ChaveNfv" asp-for="ChaveNfv">
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="NrSeqPedido" name="NrSeqPedido" asp-for="NrSeqPedido" />
+                    <input type="hidden" id="NrSeqProduto" name="NrSeqProduto" asp-for="NrSeqProduto" />
+                    <input type="hidden" id="NrSeqCliente" name="NrSeqCliente" asp-for="NrSeqCliente" />
+                    <input type="hidden" id="NrSeqImpostos" name="NrSeqImpostos" asp-for="NrSeqImpostos" />
+
+
+                    <table class="table table-secondary table-striped">
+                        <thead>
+                            <tr>
+                                <th>Selecione</th>
+                                <th>Nr NFV</th>
+                                <th>Nr Pedido</th>
+                                <th>Cliente</th>
+                                <th>Produto</th>
+                                <th>Quantidade</th>
+                                <th>Valor Total</th>
+                                <th>Imposto</th>
+                                <th>Frete</th>
+                                <th>Data Cadastro</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.ListaNotas != null)
+                            {
+                                @for (int i = 0; i < Model.ListaNotas.Count; i++)
+                                {
+                                    <tr>
+                                        <!-- Adicione outras colunas coNFVorme necessário -->
+                                        <td><input type="checkbox" name="selecao" value="@Model.ListaNotas[i].NrSeqNfv" /></td>
+                                        <td>@Model.ListaNotas[i].NrNfv</td>
+                                        <td>@Model.ListaNotas[i].NrSeqPedido</td>
+                                        <td>@Model.ListaNotas[i].NomeDoCliente</td>
+                                        <td>@Model.ListaNotas[i].NomeDoProduto</td>
+                                        <td>@Model.ListaNotas[i].Quantidade</td>
+                                        <td>@Model.ListaNotas[i].ValorTotal </td>
+                                        <td>@Model.ListaNotas[i].ValorImpostos</td>
+                                        <td>@Model.ListaNotas[i].ValorFrete</td>
+                                        <td>@Model.ListaNotas[i].DataCadastro.ToString("dd/MM/yyyy")</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <input type="hidden" id="IdsSelecionados" name="IdsSelecionados" />
+                </div>
+                @if (Model.AbaAtiva != false)
+                {
+                    <div class="tab-pane fade @((Model.AbaAtiva != false) ? "show active" : "")" id="tabRelatorio">
+
+                        <embed src="data:application/pdf;base64,@Model.PdfBase64" type="application/pdf" width="100%" height="900px" />
+                    </div>
+                }
+            </div>
+
+
+        </form>
+
+
+    </div>
+</div>
+
+
+<footer class="border-top footer text-muted" style=" background-color: #D9D9D9;">
+    <div class="container">
+        &copy; 2023 -Sige Sistema de Vendas - Privacy</a>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<script>
+    function goToMenu() {
+        window.location.href = '/Menu/Index';
+    }
+    function goToNovo() {
+        window.location.href = '/NFV/OnLoadManutencao?id=0&modo=novo';
+    }
+
+    $(document).ready(function () {
+
+
+
+
+        // Preencher o dropdown de Clientes
+        $.getJSON("/NFV/BuscarClientes", function (data) {
+            var dropdowCliente = $("#NomeDoCliente");
+            dropdowCliente.empty();
+
+            dropdowCliente.append('<option value="">Selecione um Cliente</option>');
+            var Clientes = {};
+
+            $.each(data, function () {
+                Clientes[this.value] = { nrSeqCliente: this.nrSeqCliente };
+                dropdowCliente.append($("<option />").val(this.value).text(this.label));
+            });
+
+            dropdowCliente.change(function () {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    $("#NrSeqCliente").val(Clientes[selectedValue].nrSeqCliente);
+
+                } else {
+                    $("#NrSeqCliente").val(0);
+
+                }
+            });
+        });
+
+
+        $.getJSON("/NFV/BuscarProduto", function (data) {
+            var dropdownProduto = $("#NomeDoProduto");
+            dropdownProduto.empty();
+            dropdownProduto.append('<option value="">Selecione um Produto</option>');
+
+            // Armazenar os dados dos produtos para uso posterior
+            var produtos = {};
+
+            $.each(data, function () {
+                produtos[this.value] = { codigo: this.codigo, descricao: this.descricao, preco: this.preco, nrSeqProduto: this.nrSeqProduto, frete: this.frete };
+                dropdownProduto.append($("<option />").val(this.value).text(this.label));
+            });
+
+            // Adicionar evento de mudança ao dropdown
+            dropdownProduto.change(function () {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    $("#NrSeqProduto").val(produtos[selectedValue].nrSeqProduto);
+
+                } else {
+                    $("#NrSeqProduto").val(0);
+                }
+            });
+        });
+
+
+        $('tbody').on('dblclick', 'tr', function () {
+            var id = $(this).find('input[name="selecao"]').val();
+            window.location.href = '/NFV/OnLoadManutencao?id=' + id + '&modo=edicao';
+        });
+
+
+        $('form').submit(function () {
+            var idsSelecionados = $('input[name="selecao"]:checked').map(function () {
+                return this.value;
+            }).get();
+
+            // Preencher o campo oculto com os IDs selecionados
+            $('#IdsSelecionados').val(idsSelecionados.join(','));
+
+            return true;
+        });
+    });
+
+    function preparePrint() {
+        var idsSelecionados = $('input[name="selecao"]:checked').map(function () {
+            return this.value;
+        }).get();
+        $('#IdsSelecionados').val(idsSelecionados.join(','));
+        $('#formNFV').submit();
+    }
+    function fecharAba() {
+        // Oculta a aba e o conteúdo
+        $('#tabRelatorioLi').hide();
+        $('#tabRelatorio').hide();
+        $('#tabNFVLi').show();
+        $('#tabNFV').show();
+        $('#NFVLi').addClass('active');
+        $('#tabNFV').addClass('show active');
+
+    }
+</script>

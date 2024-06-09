@@ -1,0 +1,129 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Sige_Erp
+build_property.RootNamespace = Sige_Erp
+build_property.ProjectDir = D:\Programas\Sistema\Sige_Erp\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Programas\Sistema\Sige_Erp
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Comissao/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taXNzYW9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Estoque/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Estoque/Manutencao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxNYW51dGVuY2FvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Menu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/NFV/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTkZWXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/NFV/Manutencao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTkZWXE1hbnV0ZW5jYW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/NF/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTkZcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/NF/Manutencao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTkZcTWFudXRlbmNhby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Pedido/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Pedido/Manutencao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXE1hbnV0ZW5jYW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Pessoa/Cadastro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzc29hXENhZGFzdHJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Pessoa/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzc29hXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Pessoa/Manutencao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzc29hXE1hbnV0ZW5jYW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Pessoa/Relatorio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzc29hXFJlbGF0b3Jpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Produto/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Produto/Manutencao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xNYW51dGVuY2FvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/TituloAPagar/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGl0dWxvQVBhZ2FyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/TituloAPagar/Manutencao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGl0dWxvQVBhZ2FyXE1hbnV0ZW5jYW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/TituloAReceber/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGl0dWxvQVJlY2ViZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/TituloAReceber/Manutencao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGl0dWxvQVJlY2ViZXJcTWFudXRlbmNhby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programas/Sistema/Sige_Erp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

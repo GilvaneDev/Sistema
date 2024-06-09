@@ -1,0 +1,415 @@
+﻿@model PedidoModel
+
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<style>
+    .navbar {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        padding-left: 5px;
+    }
+
+    .form {
+        padding-left: 5px;
+    }
+
+    .lbcolor {
+        color: black;
+        font-weight: 600;
+    }
+
+    .btn-secondary {
+        background-color: #D9D9D9;
+        color: black;
+        font-weight: 600;
+        border: none;
+    }
+
+    span {
+        color: black;
+        font-weight: 600;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #D9D9D9;
+    }
+
+    .container {
+        flex: 1;
+    }
+
+    footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #D9D9D9;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    span {
+        color: black;
+        font-weight: 600;
+    }
+
+    .logo {
+        width: 130px;
+        height: auto;
+        object-fit: cover;
+    }
+
+</style>
+<header style=" background-color: #D9D9D9;">
+    <div class="container">
+        <a class="navbar-brand custom-link custom-bold" asp-area="" asp-controller="Home" asp-action="Index">
+
+            <img src="~/images/LogoSige.png" alt="Logo do Sistema de Vendas" class="logo">
+
+            Sige Sistema de Vendas
+        </a>
+    </div>
+</header>
+<div class="container bg-body-tertiary">
+    
+
+    <div class="form">
+        <form method="post" asp-controller="Pedido" asp-action="CadastroPedidoManutencao">
+            <nav class="navbar bg-body-tertiary">
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index", "Pedido")'">Voltar</button>
+                <button type="submit" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index", "Pedido")'">Salvar</button>
+            </nav>
+            <!-- Seção para exibir mensagens -->
+            @if (TempData.ContainsKey("MensagemErro") || TempData.ContainsKey("MensagemSucesso"))
+            {
+                <div id="mensagem" class="alert alert-dismissible fade show" role="alert">
+                    @if (TempData.ContainsKey("MensagemErro"))
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @TempData["MensagemErro"]
+                        </div>
+                    }
+
+                    @if (TempData.ContainsKey("MensagemSucesso"))
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @TempData["MensagemSucesso"]
+                        </div>
+                    }
+
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <script>
+                    // Fechar a mensagem automaticamente após 5 segundos
+                    setTimeout(function () {
+                        $('#mensagem').alert('close');
+                    }, 5000);
+                </script>
+            }
+            <div class="row">
+                <div class="mb-3 col-2">
+                    <label for="TipoUsuario" class="form-label lbcolor">Status Pessoa</label>
+                    <select class="form-select" id="TipoUsuario" name="TipoUsuario" asp-for="TipoUsuario">
+                        <option value="Fornecedor" selected="@Model.TipoUsuario == " Fornecedor"">Fornecedor</option>
+                        <option value="Cliente" selected="@Model.TipoUsuario == " Cliente"">Cliente</option>
+                    </select>
+                </div>
+
+                <div class="mb-3 col-3" id="clienteRow">
+                    <label for="Cliente" class="form-label lbcolor">Cliente</label>
+                    <select class="form-select" id="Cliente" name="Cliente" asp-for="Cliente">
+                        <option value="" selected>Selecione um cliente</option>
+                        <option value="@Model.Cliente" selected>@Model.Cliente</option>
+                    </select>
+                </div>
+
+                <div class="mb-3 col-3" id="fornecedorRow">
+                    <label for="Fornecedor" class="form-label lbcolor">Fornecedor</label>
+                    <select class="form-select" id="Fornecedor" name="Fornecedor" asp-for="Fornecedor">
+                        <option value="" selected>Selecione um fornecedor</option>
+                        <option value="@Model.Fornecedor" selected>@Model.Fornecedor</option>
+                    </select>
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="NomeProduto" class="form-label lbcolor">Produto</label>
+                    <select class="form-select" id="NomeProduto" name="NomeProduto" asp-for="NomeProduto">
+                        <option value="" selected>Selecione um produto</option>
+                        <option value="@Model.NomeProduto" selected>@Model.NomeProduto</option>
+                    </select>
+                </div>
+                <div class="mb-3 col-2">
+                    <label for="StatusPedido" class="form-label lbcolor">Status Pedido</label>
+                    <select class="form-select" id="StatusPedido" name="StatusPedido" asp-for="StatusPedido">
+                        <option value="" selected>Selecione um Status do Pedido</option>
+                        <option value="Aguardando" selected="@Model.StatusPedido == "Aguardando"">Aguardando Aprovação</option>
+                        <option value="Aprovado" selected="@Model.StatusPedido == "Aprovado"">Aprovado</option>
+                        <option value="Enviado" selected="@Model.StatusPedido == "Enviado"">Enviado</option>
+                        <option value="Entregue" selected="@Model.StatusPedido == "Entregue"">Entregue</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-4">
+                    <label for="Descricao" class="form-label lbcolor">Descrição</label>
+                    <input type="text" class="form-control" id="Descricao" asp-for="Descricao" readonly>
+                </div>
+                @if (Model.FlgEdicao)
+                {
+                    <div class="mb-3 col-2" id="precoRow">
+                        <label for="PrecoUnitario" class="form-label lbcolor">Preço Unitario</label>
+                        <input type="text" class="form-control" id="PrecoUnitario" asp-for="PrecoUnitario" readonly>
+                    </div>
+                }
+                else
+                {
+                    <div class="mb-3 col-2" id="precoRow">
+                        <label for="Preco" class="form-label lbcolor">Preço Unitario</label>
+                        <input type="number" class="form-control" id="Preco" asp-for="Preco" readonly>
+                    </div>
+                }
+                <div class="mb-3 col-2">
+                    <label for="Quantidade" class="form-label lbcolor">Quantidade</label>
+                    <input type="text" class="form-control" id="Quantidade" asp-for="Quantidade">
+                </div>
+                <div class="mb-3 col-2">
+                    <label for="Frete" class="form-label lbcolor">Frete</label>
+                    <input type="text"  class="form-control" id="Frete" asp-for="Frete" readonly>
+                </div>
+                
+            </div>
+
+            <div class="row">
+               
+                <div class="mb-3 col-2">
+                    <label for="DataCadastro" class="form-label lbcolor">DT Cadastro</label>
+                    <input type="date" class="form-control" id="DataCadastro" asp-for="DataCadastro">
+                </div>
+                <div class="mb-3 col-2">
+                    <label for="DataVencimento" class="form-label lbcolor">DT Vencimento</label>
+                    <input type="date" class="form-control" id="DataVencimento" asp-for="DataVencimento">
+                </div>
+
+
+                <div class="mb-3 col-2">
+                    <label for="Etiqueta" class="form-label lbcolor">Etiqueta</label>
+                    <select class="form-select" id="Etiqueta" name="Etiqueta" asp-for="Etiqueta">
+                        <option value="" selected>Selecione uma Etiqueta</option>
+                        <option value="A Embalar">A Embalar</option>
+                        <option value="Embalado">Embalado</option>
+                        <option value="Enviado">Enviado</option>
+                    </select>
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="Motivo" class="form-label lbcolor">Motivo</label>
+                    <input type="text" class="form-control" id="Motivo" asp-for="Motivo">
+                </div>
+                <div class="mb-3 col-2 lbcolor">
+                    <label style="display: block;">Tipo</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="CheckboxTroca" asp-for="CheckboxTroca" value="true">
+                        <label class="form-check-label" for="CheckboxTroca">Troca</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="CheckboxDevolucao" asp-for="CheckboxDevolucao" value="true">
+                        <label class="form-check-label" for="CheckboxDevolucao">Devolução</label>
+                    </div>
+                </div>
+            </div>
+
+  
+            <input type="hidden" id="NrSeqPedido" name="NrSeqPedido" asp-for="NrSeqPedido" />
+            <input type="hidden" id="NrSeqProduto" name="NrSeqProduto" asp-for="NrSeqProduto" />
+            <input type="hidden" id="NrSeqPessoaFor" name="NrSeqPessoaFor" asp-for="NrSeqPessoaFor" />
+            <input type="hidden" id="NrSeqPessoaCli" name="NrSeqPessoaCli" asp-for="NrSeqPessoaCli" />
+            <input type="hidden" id="CodigoProduto" name="NrSeqProduto" asp-for="CodigoProduto" />
+
+        </form>
+
+        
+    </div>
+</div>
+
+
+<footer class="border-top footer text-muted" style=" background-color: #D9D9D9;">
+    <div class="container">
+        &copy; 2023 -Sige Sistema de Vendas - Privacy</a>
+    </div>
+</footer>
+
+<script>
+    $(document).ready(function () {
+
+        // Função para inicializar a exibição correta ao carregar a página
+        function inicializarExibicao() {
+            if ($("#TipoUsuario").val() === "Fornecedor") {
+                $("#fornecedorRow").show();
+                $("#clienteRow").hide();
+            } else {
+                $("#fornecedorRow").hide();
+                $("#clienteRow").show();
+            }
+        }
+
+        // Inicializar exibição ao carregar a página
+        inicializarExibicao();
+
+        // Evento de mudança no campo TipoUsuario
+        $("#TipoUsuario").change(function () {
+            inicializarExibicao();
+        });
+
+        $.getJSON("/Pedido/BuscarClientes", function (data) {
+            var dropdownCliente = $("#Cliente");
+            var clienteSelect = $("#Cliente");
+
+            // Verifica se já existe um cliente selecionado
+            if (!clienteSelect.val()) {
+                // Se não houver um cliente selecionado, carrega as opções do dropdown
+                dropdownCliente.empty();
+                dropdownCliente.append('<option value="">Selecione um cliente</option>');
+
+                // Preenche o dropdown com os dados obtidos
+                $.each(data, function () {
+                    dropdownCliente.append($("<option />").val(this.value).text(this.label));
+                });
+            }
+
+            // Define o valor de NrSeqPessoaCli se houver um cliente selecionado
+            var selectedValue = clienteSelect.val();
+            if (selectedValue) {               
+                $("#NrSeqPessoaCli").val(data.find(cliente => cliente.value == selectedValue).nrSeqPessoaCli);
+            } 
+
+            // Adiciona um listener de mudança no dropdown Cliente
+            dropdownCliente.change(function () {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    $("#NrSeqPessoaCli").val(data.find(cliente => cliente.value == selectedValue).nrSeqPessoaCli);
+                } else {
+                    $("#NrSeqPessoaCli").val(0);
+                }
+            });
+        });
+
+
+        // Preencher o dropdown de fornecedores
+        $.getJSON("/Pedido/BuscarFornecedores", function (data) {
+            var dropdownFornecedor = $("#Fornecedor");
+            var fornecedorSelect = $("#Fornecedor");
+            var fornecedores = {};
+
+            // Verifica se já existe um fornecedor selecionado
+            if (!fornecedorSelect.val()) {
+                // Se não houver um fornecedor selecionado, carrega as opções do dropdown
+                dropdownFornecedor.empty();
+                dropdownFornecedor.append('<option value="">Selecione um fornecedor</option>');
+
+                // Preenche o dropdown com os dados obtidos
+                $.each(data, function () {
+                    fornecedores[this.value] = { nrSeqPessoaFor: this.nrSeqPessoaFor };
+                    dropdownFornecedor.append($("<option />").val(this.value).text(this.label));
+                });
+            }
+
+            // Define o valor de NrSeqPessoaFor se houver um fornecedor selecionado
+            var selectedValue = fornecedorSelect.val();
+            if (selectedValue) {
+                $("#NrSeqPessoaFor").val(fornecedores[selectedValue].nrSeqPessoaFor);
+            }
+
+            // Adiciona um listener de mudança no dropdown Fornecedor
+            dropdownFornecedor.change(function () {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    
+                    $("#NrSeqPessoaFor").val(fornecedores[selectedValue].nrSeqPessoaFor);
+                    
+                } else {
+                    $("#NrSeqPessoaFor").val(0);
+                    
+                }
+            });
+        });
+
+        // Preencher o dropdown de produtos
+        $.getJSON("/Pedido/BuscarProduto", function (data) {
+            var dropdownProduto = $("#NomeProduto");
+            var produtoSelect = $("#NomeProduto");
+            var produtos = {};
+
+            // Verifica se já existe um produto selecionado
+            if (!produtoSelect.val()) {
+                // Se não houver um produto selecionado, carrega as opções do dropdown
+                dropdownProduto.empty();
+                dropdownProduto.append('<option value="">Selecione um Produto</option>');
+
+                // Preenche o dropdown com os dados obtidos
+                $.each(data, function () {
+                    produtos[this.value] = { codigo: this.codigo, descricao: this.descricao, preco: this.preco, nrSeqProduto: this.nrSeqProduto, frete: this.frete };
+                    dropdownProduto.append($("<option />").val(this.value).text(this.label));
+                });
+            }
+
+            // Adiciona um listener de mudança no dropdown Produto
+            dropdownProduto.change(function () {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    console.log("Produto selecionado:", selectedValue);
+                    $("#CodigoProduto").val(produtos[selectedValue].codigo);
+                    $("#Preco").val(produtos[selectedValue].preco);
+                    $("#Frete").val(produtos[selectedValue].frete);
+                    $("#Descricao").val(produtos[selectedValue].descricao);
+                    $("#NrSeqProduto").val(produtos[selectedValue].nrSeqProduto);
+                } else {
+                    $("#CodigoProduto").val("");
+                   // $("#Preco").val("");
+                    $("#Frete").val("");
+                    $("#Descricao").val("");
+                    $("#NrSeqProduto").val(0);
+                }
+            });
+        });
+
+        // Função para preencher campos com dados da URL
+        function preencherCamposComDadosURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('NrSeqPedido') && urlParams.has('NrSeqProduto') && urlParams.has('NrSeqPessoaFor') && urlParams.has('NrSeqPessoaCli')) {
+                $('#NrSeqPedido').val(urlParams.get('NrSeqPedido'));
+                $('#NrSeqProduto').val(urlParams.get('NrSeqProduto'));
+                $('#NrSeqPessoaFor').val(urlParams.get('NrSeqPessoaFor'));
+                $('#NrSeqPessoaCli').val(urlParams.get('NrSeqPessoaCli'));
+                // Pré-selecionar as opções corretas nos selects
+                $('#TipoUsuario').val(urlParams.get('TipoUsuario'));
+                $('#Cliente').val(urlParams.get('Cliente'));
+                $('#Fornecedor').val(urlParams.get('Fornecedor'));
+                $('#NomeProduto').val(urlParams.get('NomeProduto'));
+                $('#StatusPedido').val(urlParams.get('StatusPedido'));
+                $('#Etiqueta').val(urlParams.get('Etiqueta'));
+                $('#Preco').val(urlParams.get('Preco'));
+                // Atualizar selects do Bootstrap após alteração de valor
+                $('.form-select').selectpicker('refresh');
+            }
+        }
+
+        // Chamar a função ao carregar a página
+        preencherCamposComDadosURL();
+    });
+</script>
+
+
+
+
+
+

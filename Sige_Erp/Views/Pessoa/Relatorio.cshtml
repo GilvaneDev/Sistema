@@ -1,0 +1,88 @@
+﻿@model PessoaModel
+
+@{
+    Layout = null;
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<style>
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #D9D9D9;
+    }
+
+    .container {
+        flex: 1;
+    }
+
+    .logo {
+        width: 130px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #D9D9D9;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        padding-left: 5px;
+    }
+
+    .form {
+        padding-left: 5px;
+    }
+
+    .lbcolor {
+        color: black;
+        font-weight: 600;
+    }
+
+    .btn-secondary {
+        background-color: #D9D9D9;
+        color: black;
+        font-weight: 600;
+        border: none;
+    }
+
+    span {
+        color: black;
+        font-weight: 600;
+    }
+</style>
+<header style=" background-color: #D9D9D9;">
+    <div class="container">
+        <a class="navbar-brand custom-link custom-bold" asp-area="" asp-controller="Home" asp-action="Index">
+
+            <img src="~/images/LogoSige.png" alt="Logo do Sistema de Vendas" class="logo">
+
+            Relatorio
+        </a>
+    </div>
+</header>
+<div class="container bg-body-tertiary">
+    <!-- Área onde o PDF será exibido -->
+    <embed src="data:application/pdf;base64,@Model.PdfBase64" type="application/pdf" width="100%" height="600px" />
+</div>
+<footer class="border-top footer text-muted" style=" background-color: #D9D9D9;">
+    <div class="container">
+        &copy; 2023 -Sige Sistema de Vendas - Privacy</a>
+    </div>
+</footer>
+
+
+
+
+

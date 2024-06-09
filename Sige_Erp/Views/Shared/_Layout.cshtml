@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sistema de Vendas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .logo {
+            width: 130px; 
+            height: auto; 
+            object-fit: cover;
+        }
+
+        .custom-bold {
+            font-weight: bold; 
+        }
+
+        .custom-link {
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body style="background-color: #D9D9D9;">
+    <header style="background-color: #D9D9D9;">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
+            <div class="container">              
+                <a class="navbar-brand custom-link custom-bold" asp-area="" asp-controller="Home" asp-action="Index">
+                   
+                        <img src="~/images/LogoSige.png" alt="Logo do Sistema de Vendas" class="logo">
+                    
+                    Sige Sistema de Vendas
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                    <ul class="navbar-nav custom-bold">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" data-target="#sobre">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" data-target="#servicos">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                 
+                            
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" data-target="#contatos">Contatos</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pessoa" asp-action="CadastroPessoa">Cadastro</a>
+                        </li>
+                    </ul>                   
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" style=" background-color: #D9D9D9;">
+        <div class="container" >
+            &copy; 2023 -Sige Sistema de Vendas - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+</body>
+</html>

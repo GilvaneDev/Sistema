@@ -1,0 +1,145 @@
+﻿@model LoginModel
+
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<style>
+    body{
+        background: #615757;
+    }
+    .container {
+        height: 100vh;
+    }
+    .login-form {
+        width: 700px;
+        margin: 30px auto;
+        background: #D7CFCF;
+        padding: 60px 30px 50px 30px;
+    }
+
+        .login-form form {
+            margin-bottom: 15px;           
+        }
+
+        .login-form h2 {
+            margin: 0 0 15px;
+        }
+
+    .form-control, .login-btn {
+        border-radius: 2px;
+    }
+
+    .input-group-prepend .fa {
+        font-size: 18px;
+    }
+
+    .login-btn {
+        font-size: 15px;
+        font-weight: bold;
+        min-height: 40px;
+    }
+
+    .social-btn .btn {
+        border: none;
+        margin: 10px 3px 0;
+        opacity: 1;
+    }
+
+        .social-btn .btn:hover {
+            opacity: 0.9;
+        }
+
+    .social-btn .btn-secondary, .social-btn .btn-secondary:active {
+        background: #6A7086 !important;
+    }
+
+    .social-btn .btn-info, .social-btn .btn-info:active {
+        background: #64ccf1 !important;
+    }
+
+    .social-btn .btn-danger, .social-btn .btn-danger:active {
+        background: #df4930 !important;
+    }
+
+    .or-seperator {
+        margin-top: 20px;
+        text-align: center;
+        border-top: 1px solid #ccc;
+    }
+
+        .or-seperator i {
+            padding: 0 10px;
+            background: #f7f7f7;
+            position: relative;
+            top: -11px;
+            z-index: 1;
+        }
+</style>
+<div class="container d-flex justify-content-center align-items-center">
+
+
+    <div class="login-form">
+        <div class="row">
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <!-- Coluna esquerda -->              
+                <h2 class="text-center text-primary font-weight-bold"><span>Sige</span><br />Sistema de Vendas</h2>
+            </div>
+            <div class="col-md-6">
+                <!-- Coluna direita -->
+                <form asp-controller="Home" asp-action="Login" method="post">
+                    @{
+                        var erro = TempData["ErrorLogin"] as string;
+                        if (!string.IsNullOrEmpty(erro))
+                        {
+                            <h6 class="text-danger">@erro</h6>
+                        }
+                    }
+
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <span class="fa fa-user"></span>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" asp-for="Email" placeholder="Email">
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input type="password" class="form-control" asp-for="Senha" placeholder="Senha">
+                        </div>
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-secondary login-btn btn-block">Login</button>
+                    </div>                    
+                    <p class="mt-auto text-right"><a asp-area="" asp-controller="Home" asp-action="Index">Voltar</a></p>
+                </form>
+            </div>           
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,265 @@
+﻿@model PessoaModel
+
+@{
+    Layout = null;
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<style>
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #D9D9D9;
+    }
+
+    .container {
+        flex: 1;
+    }
+
+    .logo {
+        width: 130px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #D9D9D9;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        padding-left: 5px;
+    }
+
+    .form {
+        padding-left: 5px;
+    }
+
+    .lbcolor {
+        color: black;
+        font-weight: 600;
+    }
+
+    .btn-secondary {
+        background-color: #D9D9D9;
+        color: black;
+        font-weight: 600;
+        border: none;
+    }
+
+    span {
+        color: black;
+        font-weight: 600;
+    }
+</style>
+<header style=" background-color: #D9D9D9;">
+    <div class="container">
+        <a class="navbar-brand custom-link custom-bold" asp-area="" asp-controller="Home" asp-action="Index">
+
+            <img src="~/images/LogoSige.png" alt="Logo do Sistema de Vendas" class="logo">
+
+            Sige Sistema de Vendas
+        </a>
+    </div>
+</header>
+<div class="container bg-body-tertiary">
+    <div class="form">
+        <form id="formPessoa" method="post" asp-controller="Pessoa" asp-action="AcaoDesejada">
+            <input type="hidden" id="AbaAtiva" name="AbaAtiva" value="@Model.AbaAtiva" />
+
+
+            <nav class="navbar bg-body-tertiary">
+                <button type="button" class="btn btn-secondary" name="acao" value="Voltar" onclick="goToMenu()">Voltar</button>
+                <button type="button" class="btn btn-secondary" name="acao" value="Novo" onclick="goToNovo()">Novo</button>
+                <button type="submit" class="btn btn-secondary" name="acao" value="Pesquisar">Pesquisar</button>
+                <button type="submit" class="btn btn-secondary" name="acao" value="Excluir">Excluir</button>
+                <button type="submit" class="btn btn-secondary" name="acao" value="Imprimir" onclick="preparePrint()">Imprimir</button>
+            </nav>
+            <ul class="nav nav-tabs">
+                <li class="nav-item" id="tabPessoaLi">
+                    <a class="nav-link @((Model.AbaAtiva == false) ? "active" : "")" id="PessoaLi" data-bs-toggle="tab" href="#tabPessoa">Formulário Pessoa</a>
+                </li>
+                @if (Model.AbaAtiva != false)
+                {
+                    <li class="nav-item" id="tabRelatorioLi">
+                        <a class="nav-link @((Model.AbaAtiva != false) ? "active" : "")" id="RelatorioLi" data-bs-toggle="tab" href="#tabRelatorio">Relatório PDF  <span class="close-tab" onclick="fecharAba()" style="background-color: red; color: black;">&times;</span></a>
+                    </li>
+                }
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade @((Model.AbaAtiva == false) ? "show active" : "")" id="tabPessoa">
+                    <div class="row">
+                        <div class="mb-3 col-5">
+                            <label for="NomePessoa" class="form-label lbcolor">Nome</label>
+                            <input type="text" class="form-control" id="NomePessoa" asp-for="NomePessoa">
+                        </div>
+                        <div class="mb-3 col-3">
+                            <label for="TipoPessoa" class="form-label lbcolor">Tipo Pessoa</label>
+                            <select class="form-select" id="TipoPessoa" name="TipoPessoa" asp-for="TipoPessoa">
+                                <option value="" selected disabled>Escolha um tipo</option>
+                                <option value="PessoaFisica">Pessoa Física</option>
+                                <option value="PessoaJuridica">Pessoa Jurídica</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-3">
+                            <label for="TipoUsuario" class="form-label lbcolor">Status Pessoa</label>
+                            <select class="form-select" id="TipoUsuario" name="TipoUsuario" asp-for="TipoUsuario">
+                                <option value="" selected disabled>Escolha um status</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Funcionario">Funcionário</option>
+                                <option value="Fornecedor">Fornecedor</option>
+                                <option value="Cliente">Cliente</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="mb-3 col-2">
+                            <label for="DataCadastroInicio" class="form-label lbcolor">Data Cadastro Inicio</label>
+                            <input type="date" class="form-control" id="DataCadastroInicio" asp-for="DataCadastroInicio" value="">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="DataCadastroFinal" class="form-label lbcolor">Data Cadastro Final</label>
+                            <input type="date" class="form-control" id="DataCadastroFinal" asp-for="DataCadastroFinal" value="">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="Nacionalidade" class="form-label lbcolor">Nacionalidade</label>
+                            <input type="text" class="form-control" id="Nacionalidade" asp-for="Nacionalidade">
+                        </div>
+                        <div class="mb-3 col-3">
+                            <label for="CpfCnpj" class="form-label lbcolor">CpfCnpj</label>
+                            <input type="text" class="form-control" id="CpfCnpj" asp-for="CpfCnpj">
+                        </div>
+
+                        <div class="mb-3 col-2" id="SalarioRow" style="display: none;">
+                            <label for="Salario" class="form-label lbcolor">Salario</label>
+                            <input type="text" class="form-control" id="Salario" asp-for="Salario">
+                        </div>
+                    </div>
+
+
+                    <!-- Adicione esta tabela na sua página (por exemplo, Index.cshtml) -->
+                    <table class="table table-secondary table-striped">
+                        <thead>
+                            <tr>
+                                <th>Selecione</th>
+                                <th>Nome</th>
+                                <th>Tipo Pessoa</th>
+                                <th>Status Pessoa</th>
+                                <th>Data Nascimento</th>
+                                <th>Data Cadastro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.ListaPessoas.Count; i++)
+                            {
+                                <tr>
+                                    <!-- Adicione outras colunas conforme necessário -->
+                                    <td><input type="checkbox" name="selecao" value="@Model.ListaPessoas[i].NrSeqPessoa" /></td>
+                                    <td>@Model.ListaPessoas[i].NomePessoa</td>
+                                    <td>@Model.ListaPessoas[i].TipoPessoa</td>
+                                    <td>@Model.ListaPessoas[i].TipoUsuario</td>
+                                    <td>@Model.ListaPessoas[i].DataNascimento.ToString("dd/MM/yyyy")</td>
+                                    <td>@Model.ListaPessoas[i].DataCadastro.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <input type="hidden" id="IdsSelecionados" name="IdsSelecionados" />
+                </div>
+                @if (Model.AbaAtiva != false)
+                {
+                    <div class="tab-pane fade @((Model.AbaAtiva != false) ? "show active" : "")" id="tabRelatorio">
+
+                        <embed src="data:application/pdf;base64,@Model.PdfBase64" type="application/pdf" width="100%" height="900px" />
+                    </div>
+                }               
+            </div>
+           
+        </form>
+
+       
+
+    </div>
+</div>
+<footer class="border-top footer text-muted" style=" background-color: #D9D9D9;">
+    <div class="container">
+        &copy; 2023 -Sige Sistema de Vendas - Privacy</a>
+    </div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<script>
+    function goToMenu() {
+        // Redirecionar para a view Menu/Index
+        window.location.href = '/Menu/Index';
+    }
+    function goToNovo() {
+        window.location.href = '/Pessoa/Novo';
+    }
+    $(document).ready(function () {
+        $('#TipoPessoa').change(function () {
+            var tipoPessoa = $(this).val();
+            if (tipoPessoa === 'PessoaFisica') {
+                $('#SalarioRow').show();
+            } else {
+                $('#SalarioRow').hide();
+            }
+        });
+
+ 
+
+        
+
+        $('tbody').on('dblclick', 'tr', function () {
+            var id = $(this).find('input[name="selecao"]').val();
+            window.location.href = '/Pessoa/OnLoadManutencao?id=' + id;
+        });
+
+        $('form').submit(function () {
+            var idsSelecionados = $('input[name="selecao"]:checked').map(function () {
+                return this.value;
+            }).get();
+
+            // Preencher o campo oculto com os IDs selecionados
+            $('#IdsSelecionados').val(idsSelecionados.join(','));
+
+            return true;
+        });
+    });
+
+    function preparePrint() {
+        var idsSelecionados = $('input[name="selecao"]:checked').map(function () {
+            return this.value;
+        }).get();
+        $('#IdsSelecionados').val(idsSelecionados.join(','));
+        $('#formPessoa').submit();
+      
+    }  
+    function fecharAba() {
+        // Oculta a aba e o conteúdo
+         $('#tabRelatorioLi').hide();
+         $('#tabRelatorio').hide();
+        $('#tabPessoaLi').show();
+        $('#tabPessoa').show();
+        $('#PessoaLi').addClass('active');
+        $('#tabPessoa').addClass('show active');
+        
+    }
+
+</script>
+

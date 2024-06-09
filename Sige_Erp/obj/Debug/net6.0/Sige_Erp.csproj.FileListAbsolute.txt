@@ -1,0 +1,148 @@
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\appsettings.Development.json
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\appsettings.json
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Sige_Erp.staticwebassets.runtime.json
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Sige_Erp.exe
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Sige_Erp.deps.json
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Sige_Erp.runtimeconfig.json
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Sige_Erp.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Sige_Erp.pdb
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.csproj.AssemblyReference.cache
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.AssemblyInfoInputs.cache
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.AssemblyInfo.cs
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.csproj.CoreCompileInputs.cache
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.MvcApplicationPartsAssemblyInfo.cache
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.RazorAssemblyInfo.cache
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.RazorAssemblyInfo.cs
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\staticwebassets\msbuild.Sige_Erp.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\staticwebassets\msbuild.build.Sige_Erp.props
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Sige_Erp.props
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Sige_Erp.props
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\staticwebassets.build.json
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\staticwebassets.development.json
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\scopedcss\bundle\Sige_Erp.styles.css
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\refint\Sige_Erp.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.pdb
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.genruntimeconfig.cache
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\ref\Sige_Erp.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\xunit.runner.visualstudio.testadapter.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\xunit.runner.reporters.netcoreapp10.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\xunit.runner.utility.netcoreapp10.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Google.Protobuf.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\itextsharp.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\MySql.Data.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\System.IO.Pipelines.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\System.Text.Json.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\xunit.abstractions.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\xunit.assert.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\xunit.core.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\xunit.execution.dotnet.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\ZstdSharp.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\runtimes\win-x64\native\comerr64.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\runtimes\win-x64\native\gssapi64.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\runtimes\win-x64\native\k5sprt64.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\runtimes\win-x64\native\krb5_64.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\runtimes\win-x64\native\krbcc64.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Programas\MicrosoftVisualStudio\Repositorio\Programacao II\Semana 07\Sige_Erp\obj\Debug\net6.0\Sige_Erp.csproj.CopyComplete
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\appsettings.Development.json
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\appsettings.json
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\xunit.runner.visualstudio.testadapter.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\xunit.runner.reporters.netcoreapp10.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\xunit.runner.utility.netcoreapp10.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Sige_Erp.staticwebassets.runtime.json
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Sige_Erp.exe
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Sige_Erp.deps.json
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Sige_Erp.runtimeconfig.json
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Sige_Erp.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Sige_Erp.pdb
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Google.Protobuf.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\itextsharp.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\MySql.Data.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\System.IO.Pipelines.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\System.Text.Json.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\xunit.abstractions.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\xunit.assert.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\xunit.core.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\xunit.execution.dotnet.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\ZstdSharp.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\runtimes\win-x64\native\comerr64.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\runtimes\win-x64\native\gssapi64.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\runtimes\win-x64\native\k5sprt64.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\runtimes\win-x64\native\krb5_64.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\runtimes\win-x64\native\krbcc64.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+D:\Programas\Sistema\Sige_Erp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.csproj.AssemblyReference.cache
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.AssemblyInfoInputs.cache
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.AssemblyInfo.cs
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.csproj.CoreCompileInputs.cache
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.MvcApplicationPartsAssemblyInfo.cache
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.RazorAssemblyInfo.cache
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.RazorAssemblyInfo.cs
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\staticwebassets\msbuild.Sige_Erp.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\staticwebassets\msbuild.build.Sige_Erp.props
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Sige_Erp.props
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Sige_Erp.props
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\staticwebassets.build.json
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\staticwebassets.development.json
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\scopedcss\bundle\Sige_Erp.styles.css
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.csproj.CopyComplete
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.dll
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\refint\Sige_Erp.dll
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.pdb
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\Sige_Erp.genruntimeconfig.cache
+D:\Programas\Sistema\Sige_Erp\obj\Debug\net6.0\ref\Sige_Erp.dll

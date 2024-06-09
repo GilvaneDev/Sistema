@@ -1,0 +1,409 @@
+﻿@model Sige_Erp.Models.PedidoModel
+
+@{
+    Layout = null;
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<style>
+    .navbar {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        padding-left: 5px;
+    }
+
+    .form {
+        padding-left: 5px;
+    }
+
+    .lbcolor {
+        color: black;
+        font-weight: 600;
+    }
+
+    .btn-secondary {
+        background-color: #D9D9D9;
+        color: black;
+        font-weight: 600;
+        border: none;
+    }
+
+    span {
+        color: black;
+        font-weight: 600;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #D9D9D9;
+    }
+
+    .container {
+        flex: 1;
+    }
+
+    footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #D9D9D9;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    span {
+        color: black;
+        font-weight: 600;
+    }
+
+    .logo {
+        width: 130px;
+        height: auto;
+        object-fit: cover;
+    }
+
+</style>
+<header style=" background-color: #D9D9D9;">
+    <div class="container">
+        <a class="navbar-brand custom-link custom-bold" asp-area="" asp-controller="Home" asp-action="Index">
+
+            <img src="~/images/LogoSige.png" alt="Logo do Sistema de Vendas" class="logo">
+
+            Sige Sistema de Vendas
+        </a>
+    </div>
+</header>
+<div class="container bg-body-tertiary">
+
+    <div class="form">
+        <form method="post" asp-controller="Pedido" asp-action="AcaoDesejadaPedido">
+            <input type="hidden" id="AbaAtiva" name="AbaAtiva" value="@Model.AbaAtiva" />
+            <nav class="navbar bg-body-tertiary">
+                <button type="button" class="btn btn-secondary" name="acao" value="Voltar" onclick="goToMenu()">Voltar</button>
+                <button type="button" class="btn btn-secondary" name="acao" value="Novo" onclick="goToNovo()">Novo</button>
+                <button type="submit" class="btn btn-secondary" name="acao" value="Pesquisar">Pesquisar</button>
+                <button type="submit" class="btn btn-secondary" name="acao" value="Excluir">Excluir</button>
+                <button type="submit" class="btn btn-secondary" name="acao" value="Imprimir" onclick="preparePrint()">Imprimir</button>
+            </nav>
+            <ul class="nav nav-tabs">
+                <li class="nav-item" id="tabPedidoLi">
+                    <a class="nav-link @((Model.AbaAtiva == false) ? "active" : "")" id="PedidoLi" data-bs-toggle="tab" href="#tabPedido">Formulário Pedido</a>
+                </li>
+                @if (Model.AbaAtiva != false)
+                {
+                    <li class="nav-item" id="tabRelatorioLi">
+                        <a class="nav-link @((Model.AbaAtiva != false) ? "active" : "")" id="RelatorioLi" data-bs-toggle="tab" href="#tabRelatorio">Relatório PDF  <span class="close-tab" onclick="fecharAba()" style="background-color: red; color: black;">&times;</span></a>
+                    </li>
+                }
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade @((Model.AbaAtiva == false) ? "show active" : "")" id="tabPedido">
+                    <div class="row">
+                        <div class="mb-3 col-2">
+                            <label for="TipoUsuario" class="form-label lbcolor">Status Pessoa</label>
+                            <select class="form-select" id="TipoUsuario" name="TipoUsuario" asp-for="TipoUsuario">
+                                <option value="Fornecedor" selected>Fornecedor</option>
+                                <option value="Cliente">Cliente</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-3" id="clienteRow">
+                            <label for="Cliente" class="form-label lbcolor">Cliente</label>
+                            <select class="form-select" id="Cliente" name="Cliente" asp-for="Cliente">
+                                <option value="" selected>Selecione um cliente</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3 col-3" id="fornecedorRow">
+                            <label for="Fornecedor" class="form-label lbcolor">Fornecedor</label>
+                            <select class="form-select" id="Fornecedor" name="Fornecedor" asp-for="Fornecedor">
+                                <option value="" selected>Selecione um fornecedor</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label for="NomeProduto" class="form-label lbcolor">Produto</label>
+                            <select class="form-select" id="NomeProduto" name="NomeProduto" asp-for="NomeProduto">
+                                <option value="" selected>Selecione um produto</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="StatusPedido" class="form-label lbcolor">Status Pedido</label>
+                            <select class="form-select" id="StatusPedido" name="StatusPedido" asp-for="StatusPedido">
+                                <option value="" selected>Selecione um Status do Pedido</option>
+                                <option value="Aguardando">Aguardando Aprovação</option>
+                                <option value="Aprovado">Aprovado</option>
+                                <option value="Enviado">Enviado</option>
+                                <option value="Entregue">Entregue</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-2">
+                            <label for="Etiqueta" class="form-label lbcolor">Etiqueta</label>
+                            <select class="form-select" id="Etiqueta" name="Etiqueta" asp-for="Etiqueta">
+                                <option value="" selected>Selecione uma Etiqueta</option>
+                                <option value="A Embalar">A Embalar</option>
+                                <option value="Embalado">Embalado</option>
+                                <option value="Enviado">Enviado</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="CpfCnpj" class="form-label lbcolor">cpf/cnpj</label>
+                            <input type="text" class="form-control" id="CpfCnpj" asp-for="CpfCnpj">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="CodigoProduto" class="form-label lbcolor">Codigo Produto</label>
+                            <input type="text" class="form-control" id="CodigoProduto" asp-for="CodigoProduto">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="Preco" class="form-label lbcolor">Preço Unitario</label>
+                            <input type="text" class="form-control" id="Preco" asp-for="Preco">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="Quantidade" class="form-label lbcolor">Quantidade</label>
+                            <input type="text" class="form-control" id="Quantidade" asp-for="Quantidade">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="Frete" class="form-label lbcolor">Frete</label>
+                            <input type="number" class="form-control" id="Frete" asp-for="Frete">
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="mb-3 col-2">
+                            <label for="DeDataCadastro" class="form-label lbcolor">de Cadastro</label>
+                            <input type="date" class="form-control" id="DeDataCadastro" asp-for="DeDataCadastro">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="AteDataCadastro" class="form-label lbcolor">ate Cadastro</label>
+                            <input type="date" class="form-control" id="AteDataCadastro" asp-for="AteDataCadastro">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="DeVencimento" class="form-label lbcolor">de Vencimento</label>
+                            <input type="date" class="form-control" id="DeVencimento" asp-for="DeVencimento">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label for="AteVencimento" class="form-label lbcolor">ate Vencimento</label>
+                            <input type="date" class="form-control" id="AteVencimentoo" asp-for="AteVencimento">
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="NrSeqPedido" name="NrSeqPedido" asp-for="NrSeqPedido" />
+                    <input type="hidden" id="NrSeqProduto" name="NrSeqProduto" asp-for="NrSeqProduto" />
+                    <input type="hidden" id="NrSeqPessoaFor" name="NrSeqPessoaFor" asp-for="NrSeqPessoaFor" />
+                    <input type="hidden" id="NrSeqPessoaCli" name="NrSeqPessoaCli" asp-for="NrSeqPessoaCli" />
+
+
+                    <table class="table table-secondary table-striped">
+                        <thead>
+                            <tr>
+                                <th>Selecione</th>
+                                <th>Produto</th>
+                                <th>Descrição</th>
+                                <th>Codigo</th>
+                                <th>Data Cadastro</th>
+                                <th>Quantidade</th>
+                                <th>Preço</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.ListaPedidos != null)
+                            {
+                                @for (int i = 0; i < Model.ListaPedidos.Count; i++)
+                                {
+                                    <tr>
+                                        <!-- Adicione outras colunas conforme necessário -->
+                                        <td><input type="checkbox" name="selecao" value="@Model.ListaPedidos[i].NrSeqPedido" /></td>
+                                        <td>@Model.ListaPedidos[i].NomeProduto </td>
+                                        <td>@Model.ListaPedidos[i].Descricao</td>
+                                        <td>@Model.ListaPedidos[i].CodigoProduto</td>
+                                        <td>@Model.ListaPedidos[i].DataCadastro.ToString("dd/MM/yyyy")</td>
+                                        <td>@Model.ListaPedidos[i].Quantidade.ToString()</td>
+                                        <td>@Model.ListaPedidos[i].Preco.ToString()</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <input type="hidden" id="IdsSelecionados" name="IdsSelecionados" />
+                </div>
+                @if (Model.AbaAtiva != false)
+                {
+                    <div class="tab-pane fade @((Model.AbaAtiva != false) ? "show active" : "")" id="tabRelatorio">
+
+                        <embed src="data:application/pdf;base64,@Model.PdfBase64" type="application/pdf" width="100%" height="900px" />
+                    </div>
+                }
+            </div>
+            
+
+        </form>
+
+
+    </div>
+</div>
+
+
+<footer class="border-top footer text-muted" style=" background-color: #D9D9D9;">
+    <div class="container">
+        &copy; 2023 -Sige Sistema de Vendas - Privacy</a>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<script>
+    function goToMenu() {
+        window.location.href = '/Menu/Index';
+    }
+    function goToNovo() {
+        window.location.href = '/Pedido/OnLoadManutencao?id=0&modo=novo';
+    }
+
+    $(document).ready(function () {
+        // Função para inicializar a exibição correta ao carregar a página
+        function inicializarExibicao() {
+            if ($("#TipoUsuario").val() === "Fornecedor") {
+                $("#fornecedorRow").show();
+                $("#clienteRow").hide();
+            } else {
+                $("#fornecedorRow").hide();
+                $("#clienteRow").show();
+            }
+        }
+
+        // Inicializar exibição ao carregar a página
+        inicializarExibicao();
+
+        // Evento de mudança no campo TipoUsuario
+        $("#TipoUsuario").change(function () {
+            inicializarExibicao();
+        });
+
+        $.getJSON("/Pedido/BuscarClientes", function (data) {
+            var dropdownCliente = $("#Cliente");
+            dropdownCliente.empty();
+
+            dropdownCliente.append('<option value="">Selecione um cliente</option>');
+            var clientes = {};
+
+            $.each(data, function () {
+                clientes[this.value] = { nrSeqPessoaCli: this.nrSeqPessoaCli };
+                dropdownCliente.append($("<option />").val(this.value).text(this.label));
+            });
+
+            dropdownCliente.change(function () {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    $("#NrSeqPessoaCli").val(clientes[selectedValue].nrSeqPessoaCli);
+                    console.log("Cliente selecionado:", selectedValue, "NrSeqPessoaCli:", clientes[selectedValue].nrSeqPessoaCli);
+                } else {
+                    $("#NrSeqPessoaCli").val(0);
+                    console.log("Nenhum cliente selecionado. NrSeqPessoaCli definido como 0.");
+                }
+            });
+        });
+
+        // Preencher o dropdown de fornecedores
+        $.getJSON("/Pedido/BuscarFornecedores", function (data) {
+            var dropdownFornecedor = $("#Fornecedor");
+            dropdownFornecedor.empty();
+
+            dropdownFornecedor.append('<option value="">Selecione um fornecedor</option>');
+            var fornecedores = {};
+
+            $.each(data, function () {
+                fornecedores[this.value] = { nrSeqPessoaFor: this.nrSeqPessoaFor };
+                dropdownFornecedor.append($("<option />").val(this.value).text(this.label));
+            });
+
+            dropdownFornecedor.change(function () {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    $("#NrSeqPessoaFor").val(fornecedores[selectedValue].nrSeqPessoaFor);
+                    console.log("Fornecedor selecionado:", selectedValue, "NrSeqPessoaFor:", fornecedores[selectedValue].nrSeqPessoaFor);
+                } else {
+                    $("#NrSeqPessoaFor").val(0);
+                    console.log("Nenhum fornecedor selecionado. NrSeqPessoaFor definido como 0.");
+                }
+            });
+        });
+
+
+             $.getJSON("/Pedido/BuscarProduto", function (data) {
+            var dropdownProduto = $("#NomeProduto");
+            dropdownProduto.empty();
+            dropdownProduto.append('<option value="">Selecione um Produto</option>');
+
+            // Armazenar os dados dos produtos para uso posterior
+            var produtos = {};
+
+            $.each(data, function () {
+                produtos[this.value] = { codigo:this.codigo, descricao: this.descricao, preco: this.preco, nrSeqProduto: this.nrSeqProduto, frete: this.frete };
+                dropdownProduto.append($("<option />").val(this.value).text(this.label));
+            });
+
+            // Adicionar evento de mudança ao dropdown
+            dropdownProduto.change(function () {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    $("#CodigoProduto").val(produtos[selectedValue].codigo);
+                    $("#Preco").val(produtos[selectedValue].preco);
+                    $("#Frete").val(produtos[selectedValue].frete);
+                    $("#NrSeqProduto").val(produtos[selectedValue].nrSeqProduto);
+  
+                } else {
+                    $("#CodigoProduto").val("");
+                    $("#Preco").val("");
+                    $("#Frete").val("");
+                    $("#NrSeqProduto").val(0);
+                }
+            });
+        });
+
+
+        $('tbody').on('dblclick', 'tr', function () {
+            var id = $(this).find('input[name="selecao"]').val();
+            window.location.href = '/Pedido/OnLoadManutencao?id=' + id + '&modo=edicao';
+        });
+
+
+        $('form').submit(function () {
+            var idsSelecionados = $('input[name="selecao"]:checked').map(function () {
+                return this.value;
+            }).get();
+
+            // Preencher o campo oculto com os IDs selecionados
+            $('#IdsSelecionados').val(idsSelecionados.join(','));
+
+            return true;
+        });
+    });
+
+    function preparePrint() {
+        var idsSelecionados = $('input[name="selecao"]:checked').map(function () {
+            return this.value;
+        }).get();
+        $('#IdsSelecionados').val(idsSelecionados.join(','));
+        $('#formPedido').submit();
+    }
+    function fecharAba() {
+        // Oculta a aba e o conteúdo
+        $('#tabRelatorioLi').hide();
+        $('#tabRelatorio').hide();
+        $('#tabPedidoLi').show();
+        $('#tabPedido').show();
+        $('#PedidoLi').addClass('active');
+        $('#tabPedido').addClass('show active');
+
+    }
+</script>

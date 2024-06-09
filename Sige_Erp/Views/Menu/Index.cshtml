@@ -1,0 +1,134 @@
+﻿@{
+    Layout = null;
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<style>
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #D9D9D9;
+    }
+
+    .container {
+        flex: 1;
+    }
+
+    .logo {
+        width: 130px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #D9D9D9;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        padding-left: 5px;
+    }
+
+    .form {
+        padding-left: 5px;
+    }
+
+    .lbcolor {
+        color: black;
+        font-weight: 600;
+    }
+
+    .btn-secondary {
+        background-color: #D9D9D9;
+        color: black;
+        font-weight: 600;
+        border: none;
+    }
+
+    span {
+        color: black;
+        font-weight: 600;
+    }
+</style>
+<body onload="CarregaUsuarioLogado()">
+<header style=" background-color: #D9D9D9;">
+    <div class="container">
+        <a class="navbar-brand custom-link custom-bold" asp-area="" asp-controller="Home" asp-action="Index">
+
+            <img src="~/images/LogoSige.png" alt="Logo do Sistema de Vendas" class="logo">
+
+            Sige Sistema de Vendas
+        </a>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" style="padding-left:200px">
+                @using Microsoft.AspNetCore.Http
+                @inject IHttpContextAccessor HttpContextAccessor
+                <div id="NomeUsuarioLogado"></div>
+            </div>
+    </div>
+</header>
+    <div class="container bg-body-tertiary" style="padding-left:0">
+        <div class="row">
+            <!-- Menu lateral com Bootstrap -->
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="@Url.Action("Index", "Pessoa")" class="list-group-item list-group-item-action">Pessoa</a>
+                    <a href="@Url.Action("Index", "Pedido")" class="list-group-item list-group-item-action">Pedido</a>
+                    <a href="@Url.Action("Index", "Produto")" class="list-group-item list-group-item-action">Produto</a>
+                    <a href="@Url.Action("Index", "Estoque")" class="list-group-item list-group-item-action">Estoque</a>
+                    <a href="@Url.Action("Index", "TituloAReceber")" class="list-group-item list-group-item-action">Titulo a Receber</a>
+                    <a href="@Url.Action("Index", "TituloAPagar")" class="list-group-item list-group-item-action">Titulo a Pagar</a>
+                    <a href="@Url.Action("Index", "NF")" class="list-group-item list-group-item-action">Nota Fiscal de Entrada</a>
+                    <a href="@Url.Action("Index", "NFV")" class="list-group-item list-group-item-action">Nota Fiscal de Saida</a>
+                    <a href="@Url.Action("Index", "Comissao")" class="list-group-item list-group-item-action">Comissão</a>
+                </div>
+            </div>
+
+            <!-- Conteúdo ao lado do menu -->
+            <div class="col-md-9">
+                <div>
+                    <!-- Conteúdo da div ao lado do menu -->
+                </div>
+            </div>
+        </div>
+    </div>   
+<footer class="border-top footer text-muted" style=" background-color: #D9D9D9;">
+    <div class="container">
+        &copy; 2023 -Sige Sistema de Vendas - Privacy</a>
+    </div>
+</footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <script>
+        function CarregaUsuarioLogado() {
+            var nome = '@HttpContextAccessor.HttpContext.Session.GetString("NomeUsuarioLogado")'
+
+            if (nome != "") //usuario Logado
+            {
+                var divNome = document.getElementById("NomeUsuarioLogado");
+                divNome.innerHTML = "Olá " + nome + "<a href='../Home/Login/0'>(Sair)</a>";
+                divNome.style = "color: Black, padding-top:15px";
+            }
+        }
+        $(document).ready(function () {
+            $('a[data-target]').on('click', function (event) {
+                event.preventDefault();
+                var target = $(this).data('target');
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+</body>
